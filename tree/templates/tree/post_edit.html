@@ -1,0 +1,10 @@
+{% extends 'tree/base.html' %}
+
+{% block content %}
+    <h1>Новая биография</h1>
+    <form method="POST" class="post-form">
+      {% csrf_token %}
+        {{ form.as_p }}
+        <h2><button type="submit" class="save btn btn-default"><span class="badge badge-pill badge-success">Сохранить</span></button></h2>
+    </form>
+{% endblock %}

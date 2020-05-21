@@ -1,0 +1,22 @@
+{% extends 'tree/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% else %}
+
+             <a role="button" class="btn btn-default" href="{% url 'post_publish' slug=post.slug %}"><span class="badge badge-pill badge-success">Публиковать</span></a>
+             <a role="button" class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}"><span class="badge badge-pill badge-primary">Редактировать</span></a>
+
+        {% endif %}
+        {% if user.is_authenticated and user.is_staff %}
+            <a role="button" class="btn btn-default" href="{% url 'post_remove' slug=post.slug %}"><span class="badge badge-pill badge-danger">Удалить</span></a>
+        {% endif %}
+        <h1>{{ post.initials }}</h1>
+        <p>{{ post.dates|linebreaksbr }}</p>
+        <p>{{ post.bio|linebreaksbr }}</p>
+    </div>
+{% endblock %}
