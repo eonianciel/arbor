@@ -1,0 +1,7 @@
+{% extends 'tree/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include 'tree/includes/post_card_template.html' %}
+    {% endfor %}
+{% endblock %}
