@@ -1,0 +1,15 @@
+{% extends 'tree/base.html' %}
+
+{% block title %}
+    Delete famille "{{ famille.title|title}}" - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <form action="{{ famille.get_delete_url }}" method="post">
+        {% csrf_token %}
+        <h4>Вы уверены, что хотите удалить <b>"{{ famille.title|title }}"</b>?</h4>
+        <button type="submit" class="btn btn-default"><span class="badge badge-pill badge-danger">Удалить</span></button>
+        <a href="{{ famille.get_absolute_url }}">Отменить</a>
+    </form>
+
+{% endblock %}
