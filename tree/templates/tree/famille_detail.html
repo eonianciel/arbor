@@ -1,0 +1,9 @@
+{% extends 'tree/base.html' %}
+
+{% block title %}
+    {{ famille.title }} = {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h3 class="mb-5">"{{ famille.title|title}}"</h3>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'tree/base.html' %}
+
+{% block title %}
+    Famille list = {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h4 class="mb-2">Familles:</h4>
+
+    {% for tag in tags %}
+        <h5><a href="{{ tag.get_absolute_url }}">{{ famille.title }}</a></h5>
+    {% endfor %}
+{% endblock %}

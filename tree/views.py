@@ -8,14 +8,21 @@ from .forms import PostForm
 from .utils import*
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.all()
     return render(request, 'tree/post_list.html', {'posts': posts})
+
+def famille_list(request):
+    familles = Famille.objects.all()
+    return render(request, 'tree/famille_list.html', context={'familles': familles})
 
 
 class PostDetail(ObjectDetailMixin, View):
     model = Post
     template = 'tree/post_detail.html'
 
+class FamilleDetail(ObjectDetailMixin, View):
+    model = Famille
+    template = 'tree/famille_detail.html'
 
 class PostCreate(ObjectCreateMixin, View):
         model = Post
