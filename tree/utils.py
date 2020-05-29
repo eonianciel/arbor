@@ -60,10 +60,10 @@ class ObjectUpdateMixin:
         bound_form = self.form(request.POST, instance=obj)
 
         if bound_form.is_valid():
-            obj = bound_form.save(commit=False)
-            obj.author = request.user
-            obj.save()
-            return redirect(self.redirect_url, 'slug'==obj.slug)
+            new_obj = bound_form.save(commit=False)
+            #new_obj.author = request.user
+            #obj.save()
+            return redirect(self.redirect_url, 'slug'==new_obj.slug)
         return render(request, self.template, context={'form': bound_form, self.model.__name__.lower(): obj})
 
 

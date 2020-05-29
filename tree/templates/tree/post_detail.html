@@ -7,13 +7,16 @@
                 {{ post.published_date }}
             </div>
         {% else %}
-
-             <a role="button" class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}"><span class="badge badge-pill badge-primary">Редактировать</span></a>
-
+            {% if user.is_authenticated %}
+                <a role="button" class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}">
+                  <span class="badge badge-pill badge-primary">Редактировать</span></a>
+            {% endif %}
         {% endif %}
         {% if user.is_authenticated and user.is_staff %}
-            <a role="button" class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}"><span class="badge badge-pill badge-primary">Редактировать</span></a>
-            <a role="button" class="btn btn-default" href="{% url 'post_delete' slug=post.slug %}"><span class="badge badge-pill badge-danger">Удалить</span></a>
+            <a role="button" class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}">
+              <span class="badge badge-pill badge-primary">Редактировать</span></a>
+            <a role="button" class="btn btn-default" href="{% url 'post_delete' slug=post.slug %}">
+              <span class="badge badge-pill badge-danger">Удалить</span></a>
         {% endif %}
         <h1>{{ post.initials }}</h1>
         <p>{{ post.dates|linebreaksbr }}</p>
