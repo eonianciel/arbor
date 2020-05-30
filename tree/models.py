@@ -41,10 +41,6 @@ class Post(models.Model):
     def get_delete_url(self):
         return reverse('post_delete', kwargs={'slug': self.slug})
 
-    #def publish(self):
-        #self.published_date = timezone.now()
-        #self.save()
-
     class Meta:
         ordering = ['-published_date']
 
