@@ -5,15 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <a role="button" class="btn btn-success" href="{% url 'famille_create' %}">Добавить новую фамилию?</a>
-    <h4 class="mb-2">Familles:</h4>
-
     {% for famille in familles %}
-        <h5><a href="{{ famille.get_absolute_url }}">{{ famille.title }}</a></h5>
-
-        <a role="button" class="btn btn-default" href="{% url 'famille_update' slug=famille.slug %}">
-          <span class="badge badge-pill badge-info">Изменить</span></a>
-        <a role="button" class="btn btn-default" href="{{ famille.get_delete_url }}">
-          <span class="badge badge-pill badge-danger">Удалить</span></a>
+        <div class="card">
+          <h1><a class="card-header" href="{{ famille.get_absolute_url }}">{{ famille.title }}</a></h1>
+        </div>
     {% endfor %}
 {% endblock %}

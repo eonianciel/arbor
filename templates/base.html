@@ -20,6 +20,7 @@
           <a role="button" class="btn btn-outline-success btn-sm" "top-menu" href="{% url 'post_new' %}">Новое био</a>
           <a role="button" class="btn btn-outline-success btn-sm" "top-menu" href="{% url 'famille_list' %}">Familles</a>
           <a role="button" class="btn btn-outline-success btn-sm" "top-menu" href="{% url 'post_list' %}">Posts</a>
+          <a role="button" class="btn btn-outline-success btn-sm" "top-menu" href="{% url 'famille_create' %}">add famille</a>
           <h3><p class="top-menu">Привет, {{ user.username }} <small>(<a href="{% url 'logout' %}">Выйти</a>)</small></p></h3>
       {% else %}
           <a role="button" class="btn btn-outline-primary btn-lg" "top-menu" href="{% url 'login' %}">Войти</a>

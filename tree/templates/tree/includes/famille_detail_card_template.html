@@ -1,0 +1,20 @@
+<div class="card">
+  <h1 class="card-header">{{ famille.title|title }}</h1>
+  <div class="card-body">
+    {% if user.is_authenticated %}
+        <a role="button" class="btn btn-default" href="{% url 'famille_update' slug=famille.slug %}">
+          <span class="badge badge-pill badge-info">Изменить</span></a>
+    {% endif %}
+    {% if user.is_authenticated and user.is_staff %}
+        <a role="button" class="btn btn-default" href="{{ famille.get_delete_url }}">
+          <span class="badge badge-pill badge-danger">Удалить</span></a>
+    {% endif %}
+    <p>{{ famille.details|linebreaksbr }}</p>
+  </div>
+  <div class="card-footer text-muted">
+      <h4 class="mb-5">Представители {{ famille.title|title }}:</h4>
+      {% for post in famille.posts.all %}
+          {% include 'tree/includes/post_card_template.html'%}
+      {% endfor %}
+  </div>
+</div>

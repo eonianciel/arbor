@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
+{% block title %}
+    User Authentication = {{ block.super }}
+{% endblock %}
+
 {% block content %}
     {% if form.errors %}
         <p>Имя пользователя или пароль не подходят. Пожалуйста, попробуйте еще раз.</p>
     {% endif %}
+
+    <h1><p>Bы пытаетесь войти в закрытый раздел</p></h1>
+    <h2><p>Пожалуйста, авторизируйтесь</p></h2>
 
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}

@@ -14,8 +14,8 @@ class Image(models.Model):
     related_name='images_created', on_delete=models.CASCADE)
     title = models.CharField(max_length=350)
     slug = models.SlugField(max_length=150, blank=True)
-    url = models.URLField()
-    image = models.ImageField(upload_to='images/%Y/%m/%d/')
+    url = models.URLField(blank=True)
+    image = models.ImageField(upload_to='archive')
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True, db_index=True)
 

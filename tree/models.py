@@ -17,7 +17,7 @@ class Post(models.Model):
     dates = models.CharField(max_length=350, db_index=True, verbose_name='Даты')
     bio = models.TextField(blank=True, db_index=True, verbose_name='Биография')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
-    image = models.ImageField(upload_to='posts', verbose_name='Фото', null=True)
+    image = models.ImageField(blank=True, upload_to='posts', verbose_name='Фото', null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -48,7 +48,7 @@ class Post(models.Model):
 
 class Famille(models.Model):
     title = models.CharField(max_length=250, verbose_name='Фамилия')
-    details = models.TextField(blank=True, db_index=True, verbose_name='Детали')
+    details = models.TextField(blank=True, db_index=True, verbose_name='Подробности')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
 
     def save(self, *args, **kwargs):

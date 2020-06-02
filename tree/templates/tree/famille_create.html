@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Post Create = {{ block.super }}
+    Famille Create = {{ block.super }}
 {% endblock %}
 
 {% block content %}
-    <h1>Новая биография</h1>
-    <form action="{% url 'post_new' %}" method="post">
+    <h1>Новая фамилия</h1>
+    <form action="{% url 'famille_create' %}" method="post">
       {% csrf_token %}
       {% for field in form %}
           <div class="form-group">
@@ -16,7 +16,6 @@
                   </div>
               {% endif %}
               {{ field.label }}
-              {{ post.image }}
               {{ field }}
           </div>
       {% endfor %}

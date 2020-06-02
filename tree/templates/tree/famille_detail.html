@@ -1,19 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    {{ famille.title }} = {{ block.super }}
-{% endblock %}
-
 {% block content %}
-    <h3 class="mb-5">"{{ famille.title|title}}"</h3>
-    <p>{{ famile.details|linebreaksbr }}</p>
-
-    {% for famille in familles %}
-
-        <a role="button" class="btn btn-default" href="{% url 'famille_update' slug=famille.slug %}">
-          <span class="badge badge-pill badge-info">Изменить</span></a>
-        <a role="button" class="btn btn-default" href="{{ famille.get_delete_url }}">
-          <span class="badge badge-pill badge-danger">Удалить</span></a>
-
-    {% endfor %}
+    {% include 'tree/includes/famille_detail_card_template.html' %}
 {% endblock %}
