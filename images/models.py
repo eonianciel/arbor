@@ -21,7 +21,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = gen_slug(self.initials)
+            self.slug = gen_slug(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):

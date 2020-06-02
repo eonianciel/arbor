@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('initials', 'dates', 'bio')
+        fields = ('initials', 'dates', 'bio', 'image')
         widgets = {
             'initials': forms.TextInput(attrs={'class': 'form-control'}),
             'dates': forms.TextInput(attrs={'class': 'form-control'}),

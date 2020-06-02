@@ -1,4 +1,4 @@
-{% extends 'tree/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     Post Create = {{ block.super }}
@@ -15,6 +15,7 @@
                   </div>
               {% endif %}
               {{ field.label }}
+              {{ post.image }}
               {{ field }}
           </div>
       {% endfor %}

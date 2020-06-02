@@ -17,6 +17,7 @@ class Post(models.Model):
     dates = models.CharField(max_length=350, db_index=True, verbose_name='Даты')
     bio = models.TextField(blank=True, db_index=True, verbose_name='Биография')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
+    image = models.ImageField(upload_to='posts', verbose_name='Фото', null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
