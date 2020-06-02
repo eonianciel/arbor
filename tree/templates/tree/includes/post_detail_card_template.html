@@ -21,7 +21,12 @@
   </div>
   <div class="card-footer text-muted">
       {% if user.is_authenticated %}
-          <p>...</p>
+          <p>
+            {% include 'tree/includes/parents_list.html'%}
+            {% include 'tree/includes/relatives_list.html'%}
+            {% include 'tree/includes/maries_list.html'%}
+            {% include 'tree/includes/scions_list.html'%}
+          </p>
       {% endif %}
   </div>
 </div>
