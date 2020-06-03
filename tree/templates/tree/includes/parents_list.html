@@ -4,9 +4,8 @@
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <div class="dropdown-menu">
-    {% for post in posts %}
-        <a class="dropdown-item" href="#">Action</a>
-    {% endfor %}
+    <a class="dropdown-item" href="#">in developing</a>
     <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'post_new' %}">+</a>
   </div>
 </div>

@@ -8,11 +8,12 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('initials', 'dates', 'bio', 'image')
+        fields = ('initials', 'dates', 'bio', 'image', 'famille')
         widgets = {
             'initials': forms.TextInput(attrs={'class': 'form-control'}),
             'dates': forms.TextInput(attrs={'class': 'form-control'}),
             'bio': forms.Textarea(attrs={'class': 'form-control'}),
+            'famille': forms.SelectMultiple(attrs={'class': 'form-control'}),
         }
 
     def clean_slug(self):
