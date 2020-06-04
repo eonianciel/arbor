@@ -17,7 +17,7 @@ class Post(models.Model):
     dates = models.CharField(max_length=350, db_index=True, verbose_name='Даты')
     bio = models.TextField(blank=True, db_index=True, verbose_name='Биография')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
-    image = models.ImageField(blank=True, upload_to='posts', verbose_name='Фото')
+    image = models.ImageField(blank=True, null=True, upload_to='posts', verbose_name='Фото')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     famille = models.ManyToManyField('Famille', blank=True, related_name='posts', verbose_name='Род')
