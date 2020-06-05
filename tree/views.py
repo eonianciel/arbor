@@ -14,7 +14,8 @@ from .utils import*
 @login_required
 def famille_list(request):
     familles = Famille.objects.all()
-    return render(request, 'tree/famille_list.html', context={'familles': familles})
+    return render(request, 'tree/famille_list.html',
+     context={'familles': familles})
 
 @login_required
 def post_list(request):

@@ -12,15 +12,21 @@ def gen_slug(s):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_index=True, null=True)
-    initials = models.CharField(max_length=500, db_index=True, verbose_name='ФИО')
-    dates = models.CharField(max_length=350, db_index=True, verbose_name='Даты')
-    bio = models.TextField(blank=True, db_index=True, verbose_name='Биография')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,
+     on_delete=models.CASCADE, db_index=True, null=True)
+    initials = models.CharField(max_length=500, db_index=True,
+     verbose_name='ФИО')
+    dates = models.CharField(max_length=350, db_index=True,
+     verbose_name='Даты')
+    bio = models.TextField(blank=True, db_index=True,
+     verbose_name='Биография')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
-    image = models.ImageField(blank=True, null=True, upload_to='posts', verbose_name='Фото')
+    image = models.ImageField(blank=True, null=True, upload_to='posts',
+     verbose_name='Фото')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    famille = models.ManyToManyField('Famille', blank=True, related_name='posts', verbose_name='Род')
+    famille = models.ManyToManyField('Famille', blank=True,
+     related_name='posts', verbose_name='Род')
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -49,7 +55,8 @@ class Post(models.Model):
 
 class Famille(models.Model):
     title = models.CharField(max_length=250, verbose_name='Фамилия')
-    details = models.TextField(blank=True, db_index=True, verbose_name='Подробности')
+    details = models.TextField(blank=True, db_index=True,
+     verbose_name='Подробности')
     slug = models.SlugField(max_length=50, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
