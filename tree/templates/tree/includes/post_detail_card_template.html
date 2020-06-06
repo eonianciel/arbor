@@ -1,7 +1,26 @@
+{% load static %}
+
 <div class="card" style="width: 50rem;">
   <h1><p class="card-text">{{ post.initials }}</p></h1>
-  <img src="{{ post.image }}" class="card-img" alt="">
   <div class="card-body">
+
+      <!--
+      {% ifequal post.image None %}
+          <img src="{% static 'css/images/xxx.jpg' %}" class="card-img" alt="">
+      {% else %}
+          <img src="{{ post.image_url }}" class="card-img" alt="">
+      {% endifequal %}
+      -->
+
+      {% if post.image %}
+          <img src="{{ post.image.url }}" class="card-img" alt="">
+      {% else %}
+          <img src="{% static 'css/images/xxx.jpg' %}" class="card-img" alt="">
+      {% endif %}
+
+      <div class="date">
+          {{ post.author }}
+      </div>
       {% if post.published_date %}
           <div class="date">
               {{ post.published_date }}
