@@ -43,6 +43,12 @@ class Post(models.Model):
     def get_delete_url(self):
         return reverse('post_delete', kwargs={'slug': self.slug})
 
+    #@property
+    #def image_url(self):
+    #    if self.image:
+    #        return self.image.url
+    #    return '#'
+
     class Meta:
         ordering = ['-published_date']
 
