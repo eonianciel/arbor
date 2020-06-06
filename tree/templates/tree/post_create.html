@@ -6,7 +6,7 @@
 
 {% block content %}
     <h1>Новая биография</h1>
-    <form action="{% url 'post_new' %}" method="post">
+    <form action="{% url 'post_new' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% for field in form %}
           <div class="form-group">
@@ -16,7 +16,7 @@
                   </div>
               {% endif %}
               {{ field.label }}
-              {{ post.image }}
+              
               {{ field }}
           </div>
       {% endfor %}
